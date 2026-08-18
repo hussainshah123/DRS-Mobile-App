@@ -1,0 +1,37 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/SpaceMono-Bold.ttf",
+      "sha1": "1eac97db6fe44c07e1acb8369099b14f340de4a2"
+    },
+    {
+      "path": "assets/fonts/SpaceMono-Regular.ttf",
+      "sha1": "2d6f2aad0983dbd94c546ff29e474f7b01a782f3"
+    },
+    {
+      "path": "assets/sounds/drs_connect.wav",
+      "sha1": "175639f55d3e703f9178d7200ee15152d9301e66"
+    },
+    {
+      "path": "assets/sounds/drs_control_off.wav",
+      "sha1": "6509d915a4334f3f687f7b5c2d930896dee8bd82"
+    },
+    {
+      "path": "assets/sounds/drs_control_on.wav",
+      "sha1": "90a255eac7d4bdb9d5708c79f120c40c4d1ea70b"
+    },
+    {
+      "path": "assets/sounds/drs_disconnect.wav",
+      "sha1": "590fffeb82e556c269be55a05a33420a6734ef7e"
+    },
+    {
+      "path": "assets/sounds/drs_error.wav",
+      "sha1": "a3debbf3e40cb4818a94fa0eebc75a97767518fc"
+    },
+    {
+      "path": "assets/sounds/drs_tap.wav",
+      "sha1": "7f40082f6905ca1288b6f9323a27615bd762ebb8"
+    }
+  ]
+}

@@ -2,6 +2,31 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!--
+      REQUIRED BY WEBRTC, and its absence is not a graceful failure.
+
+      libwebrtc starts its AndroidNetworkMonitor when the port allocator begins gathering ICE
+      candidates — which happens on setLocalDescription, not at construction. That monitor calls into
+      ConnectivityManager over JNI; without ACCESS_NETWORK_STATE the call throws SecurityException,
+      and the uncleared JNI exception aborts the process with SIGABRT on libwebrtc's "network_thread".
+
+      So the symptom is a hard native crash partway through a WORKING negotiation (offer applied,
+      candidates buffered and flushed, answer created) with nothing in the JS logs — not a
+      permission error. react-native-webrtc does not declare this in its own manifest, so it has to
+      be here. Both are normal permissions: granted at install, no runtime prompt.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!--
+      DELIBERATELY ABSENT: CAMERA, RECORD_AUDIO, MODIFY_AUDIO_SETTINGS.
+
+      Those are what react-native-webrtc needs to CAPTURE. This app only ever receives — the managed
+      desktop's agent is the media source and the offerer, and getUserMedia is never called. Asking
+      for camera and microphone on a remote-desktop viewer would be an unexplainable permission
+      prompt and an unjustifiable line on the store listing.
+    -->
+
     <application
       android:name=".MainApplication"
       android:label="@string/app_name"

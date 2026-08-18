@@ -11,6 +11,14 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		61E419A867DB498C8A9C3C7F /* SpaceMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84E99CCD1FAE4E3A8A912389 /* SpaceMono-Regular.ttf */; };
+		EC4F291BD6514AA588D7DEBD /* SpaceMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9915DB2DB58D4B7CB2BB359D /* SpaceMono-Bold.ttf */; };
+		3B9FBA9256704774A8C27743 /* drs_control_on.wav in Resources */ = {isa = PBXBuildFile; fileRef = 561B701D6D7E44648F7E55D0 /* drs_control_on.wav */; };
+		5566B66911A34839BC3217C1 /* drs_disconnect.wav in Resources */ = {isa = PBXBuildFile; fileRef = ED8ABDFCF8CE4D0D8CAA14FD /* drs_disconnect.wav */; };
+		8F9715A80DD44C1B8DFAE289 /* drs_tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = E519FE49D0FF4239AD10DEF2 /* drs_tap.wav */; };
+		D99492B1205147BB8FA31005 /* drs_control_off.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9DB3460DD4CB437BA69BF62E /* drs_control_off.wav */; };
+		510178FF1755422D8BE92C60 /* drs_error.wav in Resources */ = {isa = PBXBuildFile; fileRef = 64863719860A411ABBCE01F9 /* drs_error.wav */; };
+		D81986A1F451432E89C366D3 /* drs_connect.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5A77B11D11DB45A8AB4BA27D /* drs_connect.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,14 @@
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = drsmobile/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = drsmobile/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		84E99CCD1FAE4E3A8A912389 /* SpaceMono-Regular.ttf */ = {isa = PBXFileReference; name = "SpaceMono-Regular.ttf"; path = "../assets/fonts/SpaceMono-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9915DB2DB58D4B7CB2BB359D /* SpaceMono-Bold.ttf */ = {isa = PBXFileReference; name = "SpaceMono-Bold.ttf"; path = "../assets/fonts/SpaceMono-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		561B701D6D7E44648F7E55D0 /* drs_control_on.wav */ = {isa = PBXFileReference; name = "drs_control_on.wav"; path = "../assets/sounds/drs_control_on.wav"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		ED8ABDFCF8CE4D0D8CAA14FD /* drs_disconnect.wav */ = {isa = PBXFileReference; name = "drs_disconnect.wav"; path = "../assets/sounds/drs_disconnect.wav"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E519FE49D0FF4239AD10DEF2 /* drs_tap.wav */ = {isa = PBXFileReference; name = "drs_tap.wav"; path = "../assets/sounds/drs_tap.wav"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9DB3460DD4CB437BA69BF62E /* drs_control_off.wav */ = {isa = PBXFileReference; name = "drs_control_off.wav"; path = "../assets/sounds/drs_control_off.wav"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		64863719860A411ABBCE01F9 /* drs_error.wav */ = {isa = PBXFileReference; name = "drs_error.wav"; path = "../assets/sounds/drs_error.wav"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5A77B11D11DB45A8AB4BA27D /* drs_connect.wav */ = {isa = PBXFileReference; name = "drs_connect.wav"; path = "../assets/sounds/drs_connect.wav"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +90,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				1021F4C1A0694507B8A76C19 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -96,6 +113,22 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		1021F4C1A0694507B8A76C19 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				84E99CCD1FAE4E3A8A912389 /* SpaceMono-Regular.ttf */,
+				9915DB2DB58D4B7CB2BB359D /* SpaceMono-Bold.ttf */,
+				561B701D6D7E44648F7E55D0 /* drs_control_on.wav */,
+				ED8ABDFCF8CE4D0D8CAA14FD /* drs_disconnect.wav */,
+				E519FE49D0FF4239AD10DEF2 /* drs_tap.wav */,
+				9DB3460DD4CB437BA69BF62E /* drs_control_off.wav */,
+				64863719860A411ABBCE01F9 /* drs_error.wav */,
+				5A77B11D11DB45A8AB4BA27D /* drs_connect.wav */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -159,6 +192,14 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				61E419A867DB498C8A9C3C7F /* SpaceMono-Regular.ttf in Resources */,
+				EC4F291BD6514AA588D7DEBD /* SpaceMono-Bold.ttf in Resources */,
+				3B9FBA9256704774A8C27743 /* drs_control_on.wav in Resources */,
+				5566B66911A34839BC3217C1 /* drs_disconnect.wav in Resources */,
+				8F9715A80DD44C1B8DFAE289 /* drs_tap.wav in Resources */,
+				D99492B1205147BB8FA31005 /* drs_control_off.wav in Resources */,
+				510178FF1755422D8BE92C60 /* drs_error.wav in Resources */,
+				D81986A1F451432E89C366D3 /* drs_connect.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
