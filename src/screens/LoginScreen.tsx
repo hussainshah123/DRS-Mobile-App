@@ -345,6 +345,7 @@ const makeStyles = (theme: Theme) => ({
     paddingRight: 52,
   },
   reveal: {
+    bottom: 7,
     position: 'absolute' as const,
     right: theme.space.md,
     padding: theme.space.sm,
