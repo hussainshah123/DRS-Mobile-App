@@ -22,6 +22,7 @@ import { canOpenSession, displayName } from '../types/user';
 import { isMuted, setMuted } from '../utils/sound';
 import { Eyebrow, Readout } from './Eyebrow';
 import {
+  IconActivity,
   IconAlert,
   IconEye,
   IconInfo,
@@ -29,13 +30,14 @@ import {
   IconMonitor,
   IconShield,
   IconSignOut,
+  IconSliders,
   type IconProps,
 } from './Icons';
 import { Pressable } from './Pressable';
 import { StatusDot } from './StatusDot';
 
 /** The drawer's destinations. Kept in sync with the navigator's route names. */
-export type DrawerRoute = 'Devices' | 'Audit';
+export type DrawerRoute = 'Home' | 'Devices' | 'Audit' | 'Settings';
 
 export type DrawerContentProps = {
   active: DrawerRoute;
@@ -120,6 +122,16 @@ export function DrawerContent({ active, onNavigate, onClose, fleet }: DrawerCont
 
       <Section label="Navigate">
         <NavItem
+          icon={IconActivity}
+          label="Overview"
+          detail="Fleet health and recent activity"
+          active={active === 'Home'}
+          onPress={() => {
+            onNavigate('Home');
+            onClose();
+          }}
+        />
+        <NavItem
           icon={IconMonitor}
           label="Devices"
           detail="The managed fleet"
@@ -136,6 +148,16 @@ export function DrawerContent({ active, onNavigate, onClose, fleet }: DrawerCont
           active={active === 'Audit'}
           onPress={() => {
             onNavigate('Audit');
+            onClose();
+          }}
+        />
+        <NavItem
+          icon={IconSliders}
+          label="Settings"
+          detail="Your name, password and role"
+          active={active === 'Settings'}
+          onPress={() => {
+            onNavigate('Settings');
             onClose();
           }}
         />

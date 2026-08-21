@@ -300,6 +300,30 @@ export function IconMenu({ size, color = '#a39a8d', strokeWidth }: IconProps) {
   );
 }
 
+/** Overview / activity — the 7-day bar chart the home screen leads with. */
+export function IconActivity({ size, color = '#a39a8d', strokeWidth }: IconProps) {
+  return (
+    <Frame size={size}>
+      <Line x1={3} y1={21} x2={21} y2={21} {...stroke(color, strokeWidth)} />
+      <Line x1={7} y1={21} x2={7} y2={13} {...stroke(color, strokeWidth)} />
+      <Line x1={12} y1={21} x2={12} y2={6} {...stroke(color, strokeWidth)} />
+      <Line x1={17} y1={21} x2={17} y2={10} {...stroke(color, strokeWidth)} />
+    </Frame>
+  );
+}
+
+/** Settings — sliders rather than a cogwheel, matching the set's straight-line vocabulary. */
+export function IconSliders({ size, color = '#a39a8d', strokeWidth }: IconProps) {
+  return (
+    <Frame size={size}>
+      <Line x1={4} y1={7} x2={20} y2={7} {...stroke(color, strokeWidth)} />
+      <Line x1={4} y1={17} x2={20} y2={17} {...stroke(color, strokeWidth)} />
+      <Circle cx={9} cy={7} r={2.6} {...stroke(color, strokeWidth)} />
+      <Circle cx={15} cy={17} r={2.6} {...stroke(color, strokeWidth)} />
+    </Frame>
+  );
+}
+
 /** platformIcon picks the mark for a device's OS. */
 export function platformIcon(platform: 'windows' | 'darwin' | 'linux' | 'unknown') {
   switch (platform) {

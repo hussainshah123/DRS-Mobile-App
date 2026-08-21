@@ -37,8 +37,10 @@ import { Eyebrow } from '../components/Eyebrow';
 import { AuditScreen } from '../screens/AuditScreen';
 import { DeviceDetailsScreen } from '../screens/DeviceDetailsScreen';
 import { DevicesScreen } from '../screens/DevicesScreen';
+import { HomeScreen } from '../screens/HomeScreen';
 import { LoginScreen } from '../screens/LoginScreen';
 import { RemoteSessionScreen } from '../screens/RemoteSessionScreen';
+import { SettingsScreen } from '../screens/SettingsScreen';
 import { useAuth } from '../state/AuthContext';
 import { fonts, useTheme } from '../theme';
 import type { Device } from '../types/device';
@@ -50,8 +52,10 @@ import type { Device } from '../types/device';
  */
 export type RootStackParamList = {
   Login: undefined;
+  Home: undefined;
   Devices: undefined;
   Audit: undefined;
+  Settings: undefined;
   DeviceDetails: { device: Device };
   RemoteSession: { device: Device; withControl: boolean };
 };
@@ -83,6 +87,40 @@ function useDrawerControls(): DrawerControls {
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
+/**
+ * Which drawer entry to highlight for the focused route.
+ *
+ * The stack has routes the drawer does not list — DeviceDetails is pushed from both Home and
+ * Devices, and RemoteSession from DeviceDetails. Those map back to Devices rather than to nothing,
+ * so opening the drawer mid-drilldown shows where in the app you are instead of no selection at
+ * all.
+ */
+function drawerRouteOf(routeName: string): DrawerRoute {
+  switch (routeName) {
+    case 'Home':
+    case 'Audit':
+    case 'Settings':
+      return routeName;
+    default:
+      return 'Devices';
+  }
+}
+
+function HomeRoute({ navigation }: NativeStackScreenProps<RootStackParamList, 'Home'>) {
+  const drawer = useDrawerControls();
+  const onOpenDevice = useCallback(
+    (device: Device) => navigation.navigate('DeviceDetails', { device }),
+    [navigation],
+  );
+  return (
+    <HomeScreen
+      onOpenMenu={drawer.open}
+      onOpenDevice={onOpenDevice}
+      onFleetChange={drawer.setFleet}
+    />
+  );
+}
+
 function DevicesRoute({ navigation }: NativeStackScreenProps<RootStackParamList, 'Devices'>) {
   const drawer = useDrawerControls();
   const onOpenDevice = useCallback(
@@ -101,6 +139,11 @@ function DevicesRoute({ navigation }: NativeStackScreenProps<RootStackParamList,
 function AuditRoute() {
   const drawer = useDrawerControls();
   return <AuditScreen onOpenMenu={drawer.open} />;
+}
+
+function SettingsRoute() {
+  const drawer = useDrawerControls();
+  return <SettingsScreen onOpenMenu={drawer.open} />;
 }
 
 function DeviceDetailsRoute({
@@ -139,7 +182,7 @@ export function AppNavigation() {
   const { token, restoring } = useAuth();
 
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [activeRoute, setActiveRoute] = useState<string>('Devices');
+  const [activeRoute, setActiveRoute] = useState<string>('Home');
   const [fleet, setFleet] = useState<{ online: number; total: number } | undefined>();
   const navigationRef = useNavigationContainerRef<RootStackParamList>();
 
@@ -237,7 +280,7 @@ export function AppNavigation() {
           swipeEnabled={Boolean(token) && activeRoute !== 'RemoteSession'}
           renderContent={() => (
             <DrawerContent
-              active={activeRoute === 'Audit' ? 'Audit' : 'Devices'}
+              active={drawerRouteOf(activeRoute)}
               onNavigate={navigateFromDrawer}
               onClose={closeDrawer}
               fleet={fleet}
@@ -255,8 +298,12 @@ export function AppNavigation() {
               <Stack.Screen name="Login" component={LoginScreen} options={{ animation: 'fade' }} />
             ) : (
               <>
+                {/* Home is first, so it is the initial route: one request
+                    (/api/stats/overview) answers "is anything wrong?" without a fan-out. */}
+                <Stack.Screen name="Home" component={HomeRoute} />
                 <Stack.Screen name="Devices" component={DevicesRoute} />
                 <Stack.Screen name="Audit" component={AuditRoute} />
+                <Stack.Screen name="Settings" component={SettingsRoute} />
                 <Stack.Screen name="DeviceDetails" component={DeviceDetailsRoute} />
                 <Stack.Screen
                   name="RemoteSession"
